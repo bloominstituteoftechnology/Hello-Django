@@ -46,7 +46,7 @@ python manage.py runserver
 If it works, you'll be able to load the page locally and should see something
 like this:
 
-![Screenshot of fresh Django project](sucess.png "Success!")
+![Screenshot of fresh Django project](https://raw.githubusercontent.com/LambdaSchool/Hello-Django/master/success.png "Success!")
 
 If it doesn't, read the error, read the documentation, and ask for help. Common
 issues include needing to apply migrations (`python manage.py migrate`) and (if
