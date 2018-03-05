@@ -42,7 +42,6 @@ Then to activate it:
 To get out of the environment of `virtualenv` just type `deactivate`
 
 ----
-
 To remove a folder:
 `rm -rf [folderName]`
 
