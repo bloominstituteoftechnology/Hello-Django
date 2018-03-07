@@ -40,7 +40,7 @@ no_polls = "No polls are available."
 class QuestionIndexViewTests(TestCase):
     def test_no_questions(self):
         """
-        If no question exist, an appopriate message is displayed.
+        If no question exists an appopriate message is displayed.
         """
         response = self.client.get(reverse('polls:index'))
         self.assertEqual(response.status_code, 200)
