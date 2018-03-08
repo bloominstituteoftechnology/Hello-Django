@@ -27,7 +27,8 @@ Some commands for the Bash Terminal and notes for future reference
             du -sh .  // for everything in current directory
            
 
-
+`python manage.py runserver`
+`pip install -r requirements.txt`
 
 ----
 To get into `virtualenv` inside the project:
@@ -46,4 +47,11 @@ To remove a folder:
 `rm -rf [folderName]`
 
 
+---
 
+setting a upstream
+
+
+`git remote add upstream [github link]`
+`git fetch upstream`
+`git pull upstream`
