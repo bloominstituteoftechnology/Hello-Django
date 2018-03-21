@@ -21,6 +21,6 @@ RUN apt-get update && \
 # Then you can either attach the container for interactive use, or make a
 # docker-compose.yml file to specify the run command (can also do the build).
 # Rename/restart the container or rebuild fresh as preferred for your workflow.
-# Also note that the when starting a Django server you may need to specify
-# the host/port, e.g. "./manage.py runserver 0:8000", and also add
-# "0.0.0.0" to the ALLOWED_HOSTS list in settings (possibly via the env var).
+# Also note that when starting a Django server you may need to specify the
+# host/port, e.g. "./manage.py runserver 0:8000", and also add
+# "0.0.0.0" to the ALLOWED_HOSTS list in settings (possibly via the env var)...
