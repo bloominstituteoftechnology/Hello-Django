@@ -31,7 +31,7 @@ Now you can add your project! Django includes a command line tool `django-admin`
 that can be used to do this:
 
 ```
-django-admin startproject hello
+django-admin.py startproject hello
 ```
 
 This will make a directory with various files in it, notably `manage.py` (which
