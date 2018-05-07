@@ -11,7 +11,7 @@ ENV SHELL=/bin/bash
 # Basic Python dev dependencies
 RUN apt-get update && \
   apt-get upgrade -y && \
-  apt-get install python3-pip wget git -y && \
+  apt-get install python3-pip wget git curl -y && \
   pip3 install pipenv && \
   wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
