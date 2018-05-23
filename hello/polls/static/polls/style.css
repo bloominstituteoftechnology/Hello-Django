@@ -9,5 +9,5 @@ ul {
     list-style-type: none;
 }
 body {
-    background: white url("images/background.jpeg") no-repeat;
+    background: white url("images/background.jpeg") repeat;
 }
