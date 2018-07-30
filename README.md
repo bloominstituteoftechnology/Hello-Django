@@ -1,3 +1,5 @@
+original document can be found at: https://docs.google.com/document/d/1AJR1BWW4PIqHF6Gh8YqMhfnFzfTieIaeoRp4zp2TjhM/edit
+
 ## Day 1
 
 Summary
