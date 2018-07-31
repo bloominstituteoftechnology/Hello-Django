@@ -1,14 +1,8 @@
 <div>
     {%for notes in notes%}
-    {%if forloop.counter == True%}
-        <div style="color: red">
-        </div>
-    {%elif%}
-    <div style= "color: green">
+    <div> 
         <h2>{{notes.title}}</h2>
         <p>{{notes.content}}</p>
     </div>
-    {%endif%}
-
     {%endfor%}
 </div>
