@@ -6,7 +6,7 @@
   * (If you cloned the Hello-Django repo, delete the file requirements.txt!)
 * Go to your repo root directory
 * pipenv --three
-* pipenv install
+* pipenv install django
 * pipenv shell
 * django-admin startproject djorg .
 * django-admin startapp notes
