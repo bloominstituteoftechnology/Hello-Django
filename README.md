@@ -67,7 +67,7 @@ Activate pipenv with `pipenv shell`
 Once you are in the virtual environment, install django with `pipenv install django`
 * We are using a virtual environment instead of installing globally because installing globally would be like using npm/yarn install globally and installing all the packages on everything
 
-Add pipfile and pipfile.lock to the repo with `git add Pipfile*` and commit with `git commit -m “added pipfiles”
+Add pipfile and pipfile.lock to the repo with `git add Pipfile*` and commit with `git commit -m “added pipfiles”`
 
 Start a project with `django-admin startproject [name_of_project] .`
 * Replace [nameofproject] with the name of your project
@@ -129,7 +129,7 @@ We also need something to serve as a unique identifier for each record.  We’ll
 
 Add a uuid to serve as a key for each record.  
 * First, import the library - `from uuid import uuid4`
-* Second, add the field - `id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+* Second, add the field - `id = models.UUIDField(primary_key=True, default=uuid4, editable=False)`
   * Primary key is how the database tracks records
   * Default calls a function to randomly generate a unique identifier
   * We make editable false because we never want to change the key
@@ -153,7 +153,7 @@ Import the notes class into the repl - `from notes.models import Note`
 
 Create a new note with `n = Note(title=”example”, content=”This is a test.”)`
 
-Check by the name of your variable to make sure worked - `n’
+Check by the name of your variable to make sure worked - n
 We can use a built in function from models to save this to the database - `n.save()`
 
 Exit the terminal, then restart it - `exit()` then `python manage.py shell`
