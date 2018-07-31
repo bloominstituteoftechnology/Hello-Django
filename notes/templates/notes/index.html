@@ -1,0 +1,11 @@
+{% if notes %}
+<ul>
+  {% for note in notes %}
+  <li>
+    <a href="/notes/{{ note.title }}/">{{ note.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>There are no notes yet</p>
+{% endif %}
