@@ -2,7 +2,7 @@
 <ul>
   {% for note in notes %}
   <li>
-    <a href="/notes/{{ note.title }}/">{{ note.title }}</a>
+    <a href="{% url 'notes:title' note.title %}">{{ note.title }}</a>
   </li>
   {% endfor %}
 </ul>
