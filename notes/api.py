@@ -5,7 +5,7 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = PersonalNote
-        fields = ('title', 'content')
+        fields = ('title', 'content', 'url')
 
 class PersonalNoteViewSet(viewsets.ModelViewSet):
 
