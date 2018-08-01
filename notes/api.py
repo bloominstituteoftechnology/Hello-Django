@@ -9,7 +9,8 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
     model = PersonalNote 
     fields = ("title", "content")
 
-  """Describe the rows we want from DB."""
-  class PersonalNoteViewSet(viewsets.ModelViewSet):
-    serializer_class = PersonalNoteSerializer
-    query_set = PersonalNote.objects.all()
+
+"""Describe the rows we want from DB."""
+class PersonalNoteViewSet(viewsets.ModelViewSet):
+  serializer_class = PersonalNoteSerializer
+  queryset = PersonalNote.objects.all()
