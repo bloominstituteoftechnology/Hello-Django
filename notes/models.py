@@ -15,7 +15,7 @@ class Note(models.Model):
     created_at = models.DateTimeField(auto_now_add=True) # like Date.now() automatically calculated on creation
     last_modified = models.DateTimeField(auto_now=True) # When it was last edited auto calculater
     url = models.URLField(default='')
-    # author = models.ForeignKey(User, on_delete=models.CASCADE) # If the Refference gets deleted, it will clear the author field.
+    
 class PersonalNote(Note):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
