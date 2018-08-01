@@ -28,4 +28,4 @@ class PersonalNoteViewSet(viewsets.ModelViewSet):
     if user.is_anonymous:
       return PersonalNote.objects.none()
     else:
-      return PersonalNote.objects.all()
+      return PersonalNote.objects.filter(user=user)
