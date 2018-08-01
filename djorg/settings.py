@@ -28,10 +28,16 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['localhost']
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ]
+}
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'notes',
     'django.contrib.admin',
     'django.contrib.auth',
