@@ -5,10 +5,10 @@ from .models import PersonalNote
 """Describe the model and fields we want to use."""
 class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 
-  def create(self, validate_data):
+  def create(self, validated_data):
     # import pdb; pdb.set_trace() # invoke debugger
     user = self.context["request"].user
-    note = PersonalNote.objects.create(user=user, **validate_data)
+    note = PersonalNote.objects.create(user=user, **validated_data)
     return note
 
   class Meta:
