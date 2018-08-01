@@ -193,3 +193,23 @@ import random
 
 ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])  # All one line!
 ```
+-------------------
+Day 2
+-------------------
+1. `./manage.py runserver`
+2.  `./manage.py createsuperuser` _(this will prompt you to create user/PW)_
+4.  `./manage.py runserver`
+5.  test this by logging in at: http://127.0.0.1:8000/admin/
+6.  Added new field to add URL to notes in models.py (and save)
+7.  `./manage.py makemigrations`
+8. `./manage.py migrate`
+9.  `./manage.py runserver` _(then go back to your webpage, refresh and see if the URL field is present in notes)_
+10.  Add new class of `class PersonalNote(Note)` to models.py and inherit fields from the class Note(models.Model) with the addition of adding "user" field with "ForeignKey" and "on_delete" to PersonalNote
+11. `./manage.py makemigration`
+12. `./manage.py migrate`
+13. `./manage.py dbshell` _(must have sqlite installed before it works)_
+
+*sqlite commands:* _(`.help` for list of commands)_
+1. `.headers on`
+2. `.mode column`
+3.  `.table`
