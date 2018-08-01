@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
-python-decouple = "*"
+Django = "==2.0.2"
+djangorestframework = "*"
 
 [dev-packages]
 
