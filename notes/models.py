@@ -10,5 +10,5 @@ class Note(models.Model):
   last_modified = models.DateTimeField(auto_now=True)
   url = models.URLField(blank=True)
 
-class PesonalNote(Note): 
+class PersonalNote(Note): 
   user = models.ForeignKey(User, on_delete=models.CASCADE)
