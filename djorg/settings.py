@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtokens'
 ]
 
 MIDDLEWARE = [
@@ -122,8 +123,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication, TokenAuthentication
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASS': [
         'rest_framework.permissions.DjangoModelPermissionOrAnonReadOnly'
-    ]
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
 }
