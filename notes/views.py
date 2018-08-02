@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+from reportlab.pdfgen import canvas
 from .models import PersonalNote
 from rest_framework import viewsets
 from .api import PersonalNoteSerializer
@@ -14,3 +16,21 @@ class PersonalNoteViewSet(viewsets.ModelViewSet):
 			return PersonalNote.objects.none()
 		else:
 			return PersonalNote.objects.filter(user=user)
+
+def generate_pdf(request):
+	notes = PersonalNote.objects.all()
+ 	# Create the HttpResponse object with the appropriate PDF headers.
+	response = HttpResponse(content_type='application/pdf')
+	response['Content-Disposition'] = 'attachment; filename="notes.pdf"'
+	notes_string = u", ".join(str(note.content) for note in notes) 
+	# Create the PDF object, using the response object as its "file."
+	p = canvas.Canvas(response)
+
+	# Draw things on the PDF. Here's where the PDF generation happens.
+	# See the ReportLab documentation for the full list of functionality.
+	p.drawString(100, 100, notes_string)
+
+	# Close the PDF object cleanly, and we're done.
+	p.showPage()
+	p.save()
+	return response
