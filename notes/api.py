@@ -12,3 +12,5 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 		user = self.context['request'].user
 		note = PersonalNote.objects.create(user=user, **validated_data)
 		return note
+
+	
