@@ -1,3 +1,6 @@
+original url: https://raw.githubusercontent.com/LambdaSchool/Intro-Django/master/guides/day4.md
+
+
 --------------------
 # Day 4: Token Auth for REST
 
