@@ -18,7 +18,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = False
 DATABASE_URL = config("DATABASE_URL")
 
-ALLOWED_HOSTS = ["djorg-app-hilalaissani.herokuapp.com",'.djorg-app-hilalaissani.com','localhost']
+ALLOWED_HOSTS = ["djorg-app-hilalaissani.herokuapp.com",'.djorg-app-hilalaissani.com']
 
 
 # Application definition
