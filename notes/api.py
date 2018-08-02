@@ -2,7 +2,14 @@ from rest_framework import serializers, viewsets
 from .models import PersonalNote
 
 class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
-    
+
+    def create(self, validated_data):
+        #import pdb; pdb.set_trace()  # Start the debugger here
+        
+        user = self.context['request'].user
+        note = PersonalNote.objects.create(user = user, **validated_data)
+        return note
+
     class Meta:
         model = PersonalNote
         fields = ('title', 'content')
