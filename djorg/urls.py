@@ -24,6 +24,7 @@ router = routers.DefaultRouter()
 router.register('notes', PersonalNoteViewSet)
 
 urlpatterns = [
+	path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
 ]
