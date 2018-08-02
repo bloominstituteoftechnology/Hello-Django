@@ -25,7 +25,7 @@ class PersonalNoteViewSet(viewsets.ModelViewSet):
     # import pdb; pdb.set_trace()
     user = self.request.user
 
-    if user.is_anonymous:
+    if user.is_anonymous: # user is not logged in
       return PersonalNote.objects.none()
     else:
       return PersonalNote.objects.filter(user=user)
