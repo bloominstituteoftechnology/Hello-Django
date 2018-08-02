@@ -19,6 +19,8 @@ from django.urls import include, path
 from rest_framework import routers
 from notes.api import PersonalNotesViewSet
 
+
+from rest_framework.authtoken import views
 router = routers.DefaultRouter()
 
 router.register('notes', PersonalNotesViewSet)
@@ -28,5 +30,6 @@ urlpatterns = [
 
     # path('notes/', include('notes.urls')),
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api-token-auth/', views.obtain_auth_token)
 ]
