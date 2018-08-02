@@ -17,7 +17,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config("DEBUG", cast=bool)
 DATABASE_URL = config("DATABASE_URL")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["djorg-app-hilalaissani.herokuapp.com",'.djorg-app-hilalaissani.com','localhost']
 
 
 # Application definition
@@ -75,11 +75,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'default': dj_database_url.config(default=DATABASE_URL)
+        
     }
 }
-
-
+db_form_env = dj_database_url.config(default=DATABASE_URL)
+DATABASES['default'].update(db_form_env)
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -112,7 +112,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
