@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+
 import os
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,10 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1o#w3&q+#58d01q@1m@17jrud2)+r41&mhaimrqzotfx)*6*95'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -32,15 +33,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'notes', #here
-    'rest_framework', #here
-    'rest_framework.authtoken'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'notes',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -54,19 +55,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'djorg.urls'
-
-# here
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES':(
-        'rest_framework.authentication.TokenAuthentication', 
-        'rest_framework.authentication.BasicAuthentication', 
-        'rest_framework.authentication.SessionAuthentication', 
-
-    )
-}
 
 TEMPLATES = [
     {
@@ -136,4 +124,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+from rest_framework.authentication import TokenAuthentication
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
