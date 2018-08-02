@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from rest_framework import routers
-from django.urls import path, include
+from rest_framework.authtoken import views
+from django.urls import path, include, re_path
 from notes.api import PersonalNoteViewSet
 
 router = routers.DefaultRouter()
@@ -26,5 +27,6 @@ urlpatterns = [
     path('notes/', include('notes.urls')),
     path("polls/", include('notes.urls')),
     path('api/', include(router.urls)),
+    re_path(r'^api-token-auth/', views.obtain_auth_token),
 
 ]

@@ -1,3 +1,4 @@
 {
-  "python.pythonPath": "C:\\Users\\Velsu\\.virtualenvs\\Hello-Django-Rb5ISXGQ\\scripts\\python.exe"
+  "python.pythonPath": "C:\\Users\\Velsu\\.virtualenvs\\Hello-Django-Rb5ISXGQ\\scripts\\python.exe",
+  "python.linting.enabled": false
 }
