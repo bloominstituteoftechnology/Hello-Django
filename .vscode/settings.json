@@ -1,5 +1,6 @@
 {
     "python.linting.pylintEnabled": false,
     "python.formatting.provider": "black",
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "/Users/Stala/.local/share/virtualenvs/Hello-Django-qt9ZNOMJ/bin/python"
 }
