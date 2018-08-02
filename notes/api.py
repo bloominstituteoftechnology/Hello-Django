@@ -1,4 +1,4 @@
-from rest_framework import serializers, viewsets
+from rest_framework import serializers
 from .models import PersonalNote
 
 class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
@@ -12,16 +12,3 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 		user = self.context['request'].user
 		note = PersonalNote.objects.create(user=user, **validated_data)
 		return note
-
-class PersonalNoteViewSet(viewsets.ModelViewSet):
-	serializer_class = PersonalNoteSerializer
-	queryset = PersonalNote.objects.none()
-
-	def get_queryset(self):
-		# import pdb; pdb.set_trace()
-		user = self.request.user
-
-		if user.is_anonymous:
-			return PersonalNote.objects.none()
-		else:
-			return PersonalNote.objects.filter(user=user)
