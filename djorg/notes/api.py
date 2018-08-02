@@ -16,7 +16,6 @@
 
 from rest_framework import serializers, viewsets
 from .models import PersonalNote
-# import pdb
 
 class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 
