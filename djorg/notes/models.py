@@ -13,4 +13,4 @@ class Note(models.Model):
 
 class PersonalNote(Note): # Inherits from Note!
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+    objects = models.Manager() # added to "hack" pylint error
