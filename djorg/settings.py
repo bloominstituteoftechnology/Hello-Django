@@ -14,7 +14,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 #''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)]) 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", cast=bool)
+#DEBUG = config("DEBUG", cast=bool)
+DEBUG = False
 DATABASE_URL = config("DATABASE_URL")
 
 ALLOWED_HOSTS = ["djorg-app-hilalaissani.herokuapp.com",'.djorg-app-hilalaissani.com','localhost']
