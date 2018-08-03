@@ -28,16 +28,24 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['localhost']
 
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
 }
 
 # Application definition
 
 INSTALLED_APPS = [
     'rest_framework',
+    'rest_framework.authtoken',
     'notes',
     'django.contrib.admin',
     'django.contrib.auth',

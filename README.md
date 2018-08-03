@@ -1,3 +1,4 @@
+reference this repo: https://github.com/LambdaSchool/Intro-Django
 Day 1
 -------------------------------------
 Summary

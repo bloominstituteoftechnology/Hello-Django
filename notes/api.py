@@ -10,7 +10,6 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         user = self.context['request'].user
-        # import pdb; pdb.set_trace()
         note = PersonalNote.objects.create(user=user, **validated_data)
         return note
 
