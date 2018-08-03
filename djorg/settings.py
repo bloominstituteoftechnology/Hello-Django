@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')# load the environment variables you set above
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://djorg-imran.herokuapp.com/'] #here
+ALLOWED_HOSTS = ['*'] #here
 # http://getluky.net/2013/02/21/django-debugfalse-and-allowed_hosts/
 
 
@@ -147,6 +147,7 @@ REST_FRAMEWORK = {
 
 
 # https://djorg-imran.herokuapp.com/ | https://git.heroku.com/djorg-imran.git
+# https://imran-djorg.herokuapp.com/ | https://git.heroku.com/imran-djorg.git
 
 # shell --> heroku addons:create heroku-postgresql:hobby-dev
 
