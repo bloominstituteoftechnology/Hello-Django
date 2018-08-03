@@ -24,4 +24,6 @@ When declaring classes, you may want to have another distinct class that shares 
     
 
 () APIs in Django
-enter `pipenv shell`, `pipenv install djangorestframework`, 
+enter `pipenv shell`, `pipenv install djangorestframework`
+
+you can test APIs with `curl URLEndpoint`
