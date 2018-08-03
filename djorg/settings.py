@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 from decouple import config
 import dj_database_url
+import psycopg2# not sure
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASE_URL="sqlite:///db.sqlite3"
@@ -28,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')# load the environment variables you set above
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*'] #here
 # http://getluky.net/2013/02/21/django-debugfalse-and-allowed_hosts/
 
 
@@ -88,7 +89,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] =  dj_database_url.config()
 
 
 # Password validation
