@@ -28,7 +28,6 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG',cast=bool)
 ALLOWED_HOSTS = [x for x in config('ALLOWED_HOSTS').split(',')]
-print(ALLOWED_HOSTS)
 
 
 # Application definition
