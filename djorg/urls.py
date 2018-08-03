@@ -20,7 +20,7 @@ from rest_framework import routers
 from notes.api import PersonalNoteViewSet
 
 ROUTER = routers.DefaultRouter()
-ROUTER.register('notes', PersonalNoteViewSet)
+ROUTER.register(r'notes', PersonalNoteViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
