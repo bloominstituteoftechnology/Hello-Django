@@ -1,0 +1,18 @@
+6.
+    a)  djorg/settings.py will need new imports (from decouple import config and import dj_database_url)added dj_database_url to requirements.txt using 
+        pip freeze > requirements.txt
+    b)  djorg/settings.py --> ALLOWED_HOSTS = ['*']
+
+    c)  made a procfile in root
+
+
+    d) configured Configure whitenoise in djorg/settings.py by adding web: gunicorn djorg.wsgi
+
+7.  a) created heroku app using cli -->     heroku create imran-djorg --> https://imran-djorg.herokuapp.com/ | https://git.heroku.com/imran-djorg.git
+
+8.  made a PostgreSQL database using heroku add on --> heroku addons:create heroku-postgresql:hobby-dev
+
+9.  
+    a)  changed Heroku config vars using --> heroku config:set ALLOWED_HOSTS=.herokuapp.com, heroku config:set DEBUG=False, 
+
+        and heroku config:set SECRET_KEY=somenewsecret
