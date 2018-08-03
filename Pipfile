@@ -14,4 +14,4 @@ whitenoise = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_full_version = "python-2.7.15"
