@@ -6,10 +6,11 @@ from .models import PersonalNote
 class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = PersonalNote
-        fields = ('title', 'content')
+        fields = ('title', 'content', 'url','id')
 
     def create(self, validated_data):
         user = self.context['request'].user
+        # import pdb; pdb.set_trace()
         note = PersonalNote.objects.create(user=user, **validated_data)
         return note
 
@@ -21,7 +22,9 @@ class PersonalNoteViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
 
-        if user.is_anonymous:
-            return PersonalNote.objects.none()
-        else:
-            return PersonalNote.objects.filter(user=user)
+        # if user.is_anonymous:
+        #     print("i got in annonmyous")
+        #     return PersonalNote.objects.none()
+        # else:
+        print("i got in not annonmyous")
+        return PersonalNote.objects.filter(user=user)
