@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
 
 # Application definition
@@ -79,13 +79,9 @@ WSGI_APPLICATION = 'djorg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = { 
-    'default': dj_database_url.config(
-        default=config(db_from_env)
-    )
+DATABASES = {
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
-db_from_env = dj_database_url.config(conn_max_age=500, require_ssl=True)
-DATABASES['default'].update(db_from_env)
 
 
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
