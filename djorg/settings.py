@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  #http://whitenoise.evans.io/en/stable/
 ]
 
 ROOT_URLCONF = 'djorg.urls'
@@ -140,3 +141,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',#api 
     ),
 }
+
+
+
+
+# https://djorg-imran.herokuapp.com/ | https://git.heroku.com/djorg-imran.git
