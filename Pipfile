@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 Django = "*"
-python-decompile = "*"
+
 python-decouple = "*"
 djangorestframework = "*"
 gunicorn = "*"
@@ -16,4 +16,4 @@ whitenoise = "*"
 [dev-packages]
 
 [requires]
-python_version = "3"
+python_version = "3.7"
