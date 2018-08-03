@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')# load the environment variables you set above
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['*'] #here
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://imran-djorg.herokuapp.com/'] #here
 # http://getluky.net/2013/02/21/django-debugfalse-and-allowed_hosts/
 
 # //test
