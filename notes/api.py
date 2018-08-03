@@ -22,7 +22,9 @@ class PersonalNoteViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
 
-        if user.is_anonymous:
-            return PersonalNote.objects.none()
-        else:
-            return PersonalNote.objects.filter(user=user)
+        # if user.is_anonymous:
+        #     print("i got in annonmyous")
+        #     return PersonalNote.objects.none()
+        # else:
+        print("i got in not annonmyous")
+        return PersonalNote.objects.filter(user=user)
