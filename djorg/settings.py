@@ -86,6 +86,7 @@ WSGI_APPLICATION = 'djorg.wsgi.application'
 #     }
 # }
 
+DATABASES = {}
 DATABASES['default'] = dj_database_url.config('DATABASE_URL', conn_max_age=600)
 
 
