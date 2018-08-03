@@ -1,0 +1,1 @@
+web: cd hello && gunicorn hello.wsgi
