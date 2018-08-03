@@ -12,7 +12,7 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = PersonalNote
-        fields = ('title', 'content', 'url')
+        fields = ('title', 'content', 'photo')
 
 
 class PersonalNoteViewSet(viewsets.ModelViewSet):
