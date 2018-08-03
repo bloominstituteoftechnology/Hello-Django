@@ -31,8 +31,8 @@ The steps to deploy (at a high level) are:
     8. Configure `whitenoise` (add a few configuration lines to your `settings.py` file per the [documentation](http://whitenoise.evans.io/en/stable/)) `done`
 7. `heroku create your-app` - makes the project and adds Heroku as a remote to your git repository so you can push to it to deploy `done` 
 8. `heroku addons:create heroku-postgresql:hobby-dev` - makes a PostgreSQL database associated with the project (and sets the `DATABASE_URL` Heroku config var, equivalent to a local environment variable) `done`
-9. Set the other Heroku config vars, e.g. `ALLOWED_HOSTS=.herokuapp.com`, `DEBUG=False`, and `SECRET_KEY=somenewsecret` - see the [documentation](https://devcenter.heroku.com/articles/config-vars), you can set either via the Heroku CLI or by logging in to the Heroku Dashboard in your browser
-10. Deploy! _First, make sure you're all committed_. Then `git push heroku master`
+9. Set the other Heroku config vars, e.g. `ALLOWED_HOSTS=.herokuapp.com`, `DEBUG=False`, and `SECRET_KEY=somenewsecret` - see the [documentation](https://devcenter.heroku.com/articles/config-vars), you can set either via the Heroku CLI or by logging in to the Heroku Dashboard in your browser `done`
+10. Deploy! _First, make sure you're all committed_. Then `git push heroku master` `done`
 
 Once you've got it deployed, you'll probably need to run migrations on Heroku
 (since it's using a different database then local). You can do this with
@@ -68,10 +68,3 @@ concisely, in a way to get the information across efficiently to an audience
 that may be pretty busy (most people only skim most emails). Suggested length
 ~1-2 paragraphs, and bullet lists can be extremely effective.
 
-Note for bash users: if you ever get in a place where your terminal isn't
-printing out newlines properly and is not echoing your keypresses, hit `CTRL-C`
-then blindly type in the following command and hit `RETURN`:
-
-```
-stty sane
-```
