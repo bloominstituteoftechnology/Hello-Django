@@ -146,3 +146,5 @@ REST_FRAMEWORK = {
 
 
 # https://djorg-imran.herokuapp.com/ | https://git.heroku.com/djorg-imran.git
+
+# shell --> heroku addons:create heroku-postgresql:hobby-dev
