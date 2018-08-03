@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 from decouple import config
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,23 +27,24 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = False
+DATABASE_URL = config("DATABASE_URL")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["hello-django-sprint.markmarchant.herokuapp.com", '.hello-django-sprint-markmarchant.com', 'localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'notes',
+    'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework.authtoken',
-    'rest_framework',
 
 ]
 
@@ -54,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'white.middle.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'djorg.urls'
@@ -87,7 +90,8 @@ DATABASES = {
     }
 }
 
-
+db_form_env = dj_database_url.config(default=DATABASE_URL)
+DATABASES['default'].update(db_form_env)
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
