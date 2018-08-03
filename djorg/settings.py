@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "rest_framework.authtoken" "rest_framework",
+    "rest_framework.authtoken",
     "notes",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -116,7 +116,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-import SessionAuthentication, BasicAuthentication, TokenAuthentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
