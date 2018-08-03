@@ -23,6 +23,7 @@ router = routers.DefaultRouter()
 router.register('notes', PersonalNoteViewSet)
 
 urlpatterns = [
+    path('daijisen/', include('daijisen.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     re_path(r'^api-token-auth/', views.obtain_auth_token)
