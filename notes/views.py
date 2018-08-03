@@ -1,3 +1,4 @@
+import csv
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
 from .models import PersonalNote
@@ -43,3 +44,22 @@ def generate_pdf(request):
 	p.showPage()
 	p.save()
 	return response
+
+def generate_csv(request):
+	# create HttpResponse obj with CSV header
+	response = HttpResponse(content_type='text/csv') # tell browser document is a csv file
+	response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
+
+	writer = csv.writer(response)
+	writer.writerow(['First row', 'Foo', 'Bar', 'Baz'])
+	writer.writerow(['Second row', 'A', 'B', 'C', '"Testing"', "Here's a quote"])
+
+	return response
+
+
+
+
+
+
+
+
