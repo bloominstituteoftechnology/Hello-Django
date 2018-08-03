@@ -51,10 +51,11 @@ def generate_csv(request):
 	response = HttpResponse(content_type='text/csv') # tell browser document is a csv file
 	response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
 
-	notes_title = ["{}\t".format(str(note.title)) for note in notes]
-	notes_content = ["{}\t".format(str(note.content)) for note in notes]
+	notes_title = [str(note.title) for note in notes]
+	notes_content = [str(note.content) for note in notes]
 
 	writer = csv.writer(response)
+	writer.writerow(["Note Title", "Note Contents"])
 	writer.writerow(notes_title)
 	writer.writerow(notes_content)
 
