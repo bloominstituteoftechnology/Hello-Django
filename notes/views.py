@@ -56,8 +56,9 @@ def generate_csv(request):
 
 	writer = csv.writer(response)
 	writer.writerow(["Note Title", "Note Contents"])
-	writer.writerow(notes_title)
-	writer.writerow(notes_content)
+
+	for note in notes:
+		writer.writerow([note.title, note.content])
 
 	return response
 
