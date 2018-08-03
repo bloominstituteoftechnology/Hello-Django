@@ -39,5 +39,6 @@ def word(request, word):
 
     result = re.sub(replaceSourceRegex, '', result, flags=re.IGNORECASE)
     result = re.sub(r'\n', '', result)
+    result = re.sub(r'\/word\/', '/daijisen/word/', result)
 
     return HttpResponse(result)
