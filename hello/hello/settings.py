@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'hello.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASEs = {
+DATABASES = {
     "default": dj_database_url.config(default=config('DATABASE_URL')) 
 }
 
@@ -126,6 +126,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 
