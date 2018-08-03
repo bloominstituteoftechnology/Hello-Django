@@ -59,6 +59,7 @@ MIDDLEWARE = [
 
 MEDIA_ROOT = ""
 MEDIA_url = ""
+STATIC_ROOT = ""
 
 ROOT_URLCONF = 'djorg.urls'
 
