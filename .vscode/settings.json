@@ -1,3 +1,4 @@
 {
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "C:\\Users\\David\\.virtualenvs\\Hello-Django-6aENxGJb\\Scripts\\python.exe"
 }
