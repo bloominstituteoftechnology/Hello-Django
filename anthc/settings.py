@@ -19,7 +19,6 @@ import dj_database_url
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-# May need to remove .herokuapp.com or add .localhost in .env
 DATABASE_URL = config('DATABASE_URL')
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 DATABASES['default'] = dj_database_url.config(default='sqlite:///db.sqlite3')
