@@ -79,14 +79,16 @@ WSGI_APPLICATION = 'djorg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'URL': dj_database_url.config("DATABASE_URL", conn_max_age=600)
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'URL': dj_database_url.config("DATABASE_URL", conn_max_age=600)
+#     }
+# }
 
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config('DATABASE_URL')
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
