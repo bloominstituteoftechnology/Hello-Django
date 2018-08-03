@@ -46,13 +46,17 @@ def generate_pdf(request):
 	return response
 
 def generate_csv(request):
+	notes = PersonalNote.objects.all()
 	# create HttpResponse obj with CSV header
 	response = HttpResponse(content_type='text/csv') # tell browser document is a csv file
 	response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
 
+	notes_title = [str(note.title) for note in notes]
+	notes_content = [str(note.content) for note in notes]
+
 	writer = csv.writer(response)
-	writer.writerow(['First row', 'Foo', 'Bar', 'Baz'])
-	writer.writerow(['Second row', 'A', 'B', 'C', '"Testing"', "Here's a quote"])
+	writer.writerow(notes_title)
+	writer.writerow(notes_content)
 
 	return response
 
