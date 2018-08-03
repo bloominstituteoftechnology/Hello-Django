@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')# load the environment variables you set above
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['*'] #here
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')#here
 # http://getluky.net/2013/02/21/django-debugfalse-and-allowed_hosts/
 
 
@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',  #http://whitenoise.evans.io/en/stable/
 ]
 
+
 ROOT_URLCONF = 'djorg.urls'
 
 TEMPLATES = [
@@ -82,14 +83,14 @@ WSGI_APPLICATION = 'djorg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
-DATABASES['default'] =  dj_database_url.config('DATABASE_URL')
+DATABASES['default'] =  dj_database_url.config(default=config('DATABASE_URL'))
 
 # test
 # Password validation
@@ -145,10 +146,13 @@ REST_FRAMEWORK = {
 
 
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# https://djorg-imran.herokuapp.com/ | https://git.heroku.com/djorg-imran.git
-# https://imran-djorg.herokuapp.com/ | https://git.heroku.com/imran-djorg.git
 
+
+
+
+# https://dorg-imran.herokuapp.com/ | https://git.heroku.com/dorg-imran.git
 # shell --> heroku addons:create heroku-postgresql:hobby-dev
 
 # https://devcenter.heroku.com/changelog-items/438
