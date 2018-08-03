@@ -7,8 +7,12 @@ name = "pypi"
 Django = "==2.0.2"
 python-decouple = "*"
 djangorestframework = "*"
+gunicorn = "*"
+dj-database-url = "*"
+psycopg2 = "*"
+whitenoise = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
