@@ -8,6 +8,9 @@ Django = "==2.0.2"
 djangorestframework = "*"
 gunicorn = "*"
 "psycopg2-binary" = "*"
+dj-database-url = "*"
+python-decouple = "*"
+whitenoise = "*"
 
 [dev-packages]
 
