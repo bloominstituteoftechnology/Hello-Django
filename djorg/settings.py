@@ -29,10 +29,6 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 DATABASE_URL = config('DATABASE_URL')
-DATABASES['default'] = dj_database_url.config('postgres://...', conn_max_age=600)
-
-
-
 
 # Application definition
 
