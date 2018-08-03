@@ -7,4 +7,4 @@ These issues were a result of my inexperience deploying Django projects with Her
 
 
 djorg project repo: https://github.com/JustinSHong/Hello-Django
-heroku app: 
+heroku app: https://pacific-island-62863.herokuapp.com
