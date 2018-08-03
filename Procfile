@@ -1,1 +1,1 @@
-web: gunicorn djorg.wsgi --log-file -
+web: gunicorn djorg_wsgi.py --log-file -
