@@ -54,9 +54,9 @@ def generate_csv(request):
 	notes_title = [str(note.title) for note in notes]
 	notes_content = [str(note.content) for note in notes]
 
-	writer = csv.writer(response)
-	writer.writerow(notes_title)
-	writer.writerow(notes_content)
+	writer = csv.writer(response, dialect='excel')
+	writer.writerow(notes_title, dialect='excel')
+	writer.writerow(notes_content, dialect='excel')
 
 	return response
 
