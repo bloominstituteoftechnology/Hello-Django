@@ -1,1 +1,1 @@
-web: gunicorn imran-djorg.wsgi
+web: gunicorn imran-djorg2.wsgi
