@@ -32,7 +32,7 @@ DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = ['*'] #here
 # http://getluky.net/2013/02/21/django-debugfalse-and-allowed_hosts/
 
-
+# //test
 # Application definition
 
 INSTALLED_APPS = [
