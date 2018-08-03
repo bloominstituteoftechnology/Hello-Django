@@ -12,6 +12,7 @@ dj-database-url = "*"
 whitenoise = "*"
 django-heroku = "*"
 
+
 [dev-packages]
 
 [requires]
