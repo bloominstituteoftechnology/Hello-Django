@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = '12345678901234567890123456789012345678901234567890'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
@@ -145,4 +146,4 @@ def get_env_var(var_name):
         error_msg = "Set the %s env var" % var_name
         raise ImproperlyConfigured(error_msg)
 
-SECRET_KEY = get_env_var('SECRET_KEY')
+#SECRET_KEY = get_env_var('SECRET_KEY')
