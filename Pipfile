@@ -4,12 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
-python-decouple = "*"
-djangorestframework = "*"
+certifi = "==2018.4.16"
+dj-database-url = "==0.5.0"
+gunicorn = "==19.9.0"
+pipenv = "==2018.7.1"
+"psycopg2-binary" = "==2.7.5"
+python-decouple = "==3.1"
+virtualenv = "==16.0.0"
+virtualenv-clone = "==0.3.0"
+whitenoise = "==3.3.1"
 
 [dev-packages]
-pylint = "*"
 
 [requires]
 python_version = "3.6"
