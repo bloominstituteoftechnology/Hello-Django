@@ -19,6 +19,7 @@ from rest_framework import routers
 from notes.api import PersonalNoteViewSet
 from rest_framework.authtoken import views
 from graphene_django.views import GraphQLView
+
 router = routers.DefaultRouter()
 router.register('notes', PersonalNoteViewSet)
 
