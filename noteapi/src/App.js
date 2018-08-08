@@ -29,16 +29,28 @@ class App extends Component {
         .catch(err => {
           console.log(err)
         });
-}
+  }
+
+  getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+  
 
   render() {
     return (
       <div className="App">
         <div>{ this.state.data.map(note => {
-          return <div> 
-            Title: { note.title } Content: { note.content }
+          return (
+          <div className="note" key={note.content} style={{ "background": this.getRandomColor() }}> 
+            <h1 className="note__h1"> { note.title } </h1>
+            <p className="note__p"> { note.content } </p>
             </div>
-        })}
+        )})}
         </div>
       </div>
     );
