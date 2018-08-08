@@ -1,5 +1,5 @@
 from graphene_django import DjangoObjectType
-from graphene
+import graphene
 
 from .models import PersonalNote as PersonalNoteModel
 
@@ -13,6 +13,12 @@ class Query(graphene.ObjectType):
     personalnotes = graphene.List(PersonalNote)
 
     def resolve_personalnotes(self, info):
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
+        user = info.context.user
 
-schema = graphene.Schema(query=query)
+        if user.is_anonymous:
+            return PersonalNoteModel.objects.none()
+        else:
+            return PersonalNoteModel.objects.filter(user=user)
+
+schema = graphene.Schema(query=Query)
