@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'graphene_django',
     ]
 
 MIDDLEWARE = [
@@ -131,5 +132,11 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+s
     ]
+}
+
+GRAPHENE = {
+    "SCHEMA": "notes.schema.schema"
 }
