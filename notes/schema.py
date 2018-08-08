@@ -16,10 +16,10 @@ class Query(graphene.ObjectType):
         # Decide which notes to return
         user = info.context.user # Find with Debugger
         # print(user)
-        # return PersonalNoteModel.objects.all()
-        if user.is_anonymous:
-            return PersonalNoteModel.objects.none()
-        else:
-            return PersonalNoteModel.objects.filter(user=user)
+        return PersonalNoteModel.objects.all()
+        # if user.is_anonymous:
+        #     return PersonalNoteModel.objects.none()
+        # else:
+        #     return PersonalNoteModel.objects.filter(user=user)
 
 schema = graphene.Schema(query=Query)

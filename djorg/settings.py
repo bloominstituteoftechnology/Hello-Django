@@ -146,9 +146,9 @@ REST_FRAMEWORK = {
 # CORS SET UP
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'localhost:3000',
+# )
 
 CORS_ALLOW_METHODS = (
     'DELETE',
@@ -164,6 +164,7 @@ CORS_ALLOW_HEADERS = (
     'accept-encoding',
     'authorization',
     'content-type',
+    'token',
     'dnt',
     'origin',
     'user-agent',

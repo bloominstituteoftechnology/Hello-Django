@@ -25,12 +25,12 @@ class App extends Component {
     axios.post('http://localhost:8000/api-token-auth/', user)
       .then(response => {
         let header = {
-          Authorization: 'Token '+response.data.token
+          Authorization: 'Token ' + response.data.token
         }
-        axios.get('http://localhost:8000/api/notes/', header)
+        axios.get('http://localhost:8000/graphql/?query=%7B%0A%20%20notes%20%7B%0A%20%20%20%20id%0A%20%20%20%20title%0A%20%20%20%20content%0A%20%20%20%20url%0A%20%20%7D%0A%7D', header)
           .then(notes_res => {
             console.log(notes_res)
-            let my_notes = Array.from(notes_res.data)
+            let my_notes = Array.from(notes_res.data.data.notes)
             this.setState({ notes: my_notes })
           })
           .catch(notes_err => {
@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div className="App">
         <div>
@@ -65,13 +65,13 @@ class App extends Component {
           <button onClick={this.handle_sign_in}>Sign In</button>
         </div>
         <div>
-          {this.state.notes.map(note => {
+          {this.state.notes.map((note, i) => {
             return (
-            <div>
-              <h3>Title: {note.title}</h3>
-              <p>Contents: {note.content}</p>
-              <p>URL: {note.url}</p>
-              <p>Author: {this.state.user.username}</p>
+              <div key={note.title + i}>
+                <h3>Title: {note.title}</h3>
+                <p>Contents: {note.content}</p>
+                <p>URL: {note.url}</p>
+                <p>Author: {this.state.user.username}</p>
               </div>
             )
           })}
