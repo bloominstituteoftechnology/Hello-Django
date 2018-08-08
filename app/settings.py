@@ -133,10 +133,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-s
     ]
 }
 
-GRAPHENE = {
-    "SCHEMA": "notes.schema.schema"
-}
+# GRAPHENE = {
+#     "SCHEMA": "notes.schema.schema"
+# }
