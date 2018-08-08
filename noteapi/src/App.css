@@ -8,3 +8,20 @@ html {
 .App {
   text-align: center;
 }
+
+.note {
+  /* background: white; */
+  border: 3px black solid;
+  width: 20%;
+  margin: 20px;
+  opacity: .9;
+}
+
+.note__h1 {
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.note__p {
+  padding-bottom: 50px;
+}
