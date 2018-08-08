@@ -6,10 +6,10 @@ class PersonalNote(DjangoObjectType):
 
   class Meta:
     model = PersonalNoteModel
-    interface = (graphene.relay.Node)
+    interfaces = (graphene.relay.Node)
 
   class Query(graphene.ObjectType):
-    notes = graphene.List(PersonalNote)
+    personalnotes = graphene.List(PersonalNote)
 
     def resolve_notes(self, info):
       user = info.context.user
