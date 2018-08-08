@@ -136,6 +136,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-# GRAPHENE = {
-#     "SCHEMA": "notes.schema.schema"
-# }
+GRAPHENE = {
+    "SCHEMA": "notes.schema.schema"
+}
