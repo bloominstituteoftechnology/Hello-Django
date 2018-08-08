@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,6 @@ REST_FRAMEWORK = {
     ]
 }
 
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema',
+}
