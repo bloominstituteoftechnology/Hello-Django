@@ -1,1 +1,6 @@
-web: gunicorn notes.wsgi
+web: gunicorn notes.py
+
+
+
+
+
