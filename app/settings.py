@@ -137,5 +137,5 @@ REST_FRAMEWORK = {
 }
 
 GRAPHENE = {
-    "SCHEMA": "notes.schema.schema"
+    'SCHEMA': 'notes.schema.schema'
 }
