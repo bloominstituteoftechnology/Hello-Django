@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './App.css';
+import Note  from './Note'
 
 class App extends Component {
   constructor() {
@@ -12,7 +13,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-  
     const token = "Token a30df5495e88a321b9d83f4b435f65502a0ebc0c"
 
     const option = {
@@ -22,36 +22,34 @@ class App extends Component {
     }
 
     axios(option)
-        .then(res => {
-            console.log(res)
-            this.setState({ data: res.data })
-        })
-        .catch(err => {
-          console.log(err)
-        });
+      .then(res => {
+          console.log(res)
+          this.setState({ data: res.data })
+      })
+      .catch(err => {
+        console.log(err)
+    });
   }
 
   getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
   }
   
-
   render() {
     return (
       <div className="App">
-        <div>{ this.state.data.map(note => {
-          return (
-          <div className="note" key={note.content} style={{ "background": this.getRandomColor() }}> 
-            <h1 className="note__h1"> { note.title } </h1>
-            <p className="note__p"> { note.content } </p>
-            </div>
-        )})}
-        </div>
+        { this.state.data.map(note => 
+          <Note 
+          key={ note.content } 
+          note={ note } 
+          getRandomColor = { this.getRandomColor }
+          />
+        )}
       </div>
     );
   }
