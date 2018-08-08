@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'notes',
     'corsheaders', # CORS HEADERS
+    'graphene_django'
 ]
 
 MIDDLEWARE = [
@@ -169,3 +170,9 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+
+## GRAPHENE SETTINGS
+GRAPHENE = {
+    # folder, file, name of variable schema...
+    'SCHEMA': 'notes.schema.schema'
+}

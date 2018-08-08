@@ -22,12 +22,12 @@ class PersonalNoteViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         loggedInUser = self.request.user
-        print(loggedInUser)
+        # print(loggedInUser)
         # import pdb; pdb.set_trace()  # Start the debugger here
-        anonUser = self.request.user.is_anonymous
-        return PersonalNote.objects.all()
+        anonUser = loggedInUser.is_anonymous
+        # return PersonalNote.objects.all()
         # FIGURE OUT WHY USER STILL IS ANON WHEN PROVIDING THE RIGHT TOKEN???
-        # if anonUser:
-        #     return PersonalNote.objects.none()
-        # else:
-        #     return PersonalNote.objects.filter(user=loggedInUser)
+        if anonUser:
+            return PersonalNote.objects.none()
+        else:
+            return PersonalNote.objects.filter(user=loggedInUser)
