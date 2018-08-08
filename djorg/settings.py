@@ -25,7 +25,9 @@ SECRET_KEY = "16job-7!nzuwtunsxa*d6#6_j(u4x!c5*8w&3b_^!nqot-xabt"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+CORS_ORIGIN_ALLOW_ALL = True # all origins will be accepted
 
 
 # Application definition
@@ -39,12 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'graphene_django',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # CORS
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -137,8 +142,17 @@ REST_FRAMEWORK = {
 }
 
 
+
 # CONFIGURE DJANGO APP FOR HEROKU
 
 import django_heroku
 
 django_heroku.settings(locals())
+
+
+
+# GRAPHENE
+
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema' # app / file / variable
+}
