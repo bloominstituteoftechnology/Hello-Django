@@ -1,7 +1,3 @@
-# Hello-Django
-Repo for playing with basic Django usage
---------------------------------------------------
-
 This repository is for validating and demonstrating a basic Django installation.
 Your goal is to create a basic initial Django project - if you have Python
 and `pip` installed, this should be pretty straightforward.
