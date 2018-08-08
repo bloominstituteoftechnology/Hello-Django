@@ -150,3 +150,7 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:3000',
     '192.168.1.7:3000'
 )
+
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema'
+}
