@@ -29,8 +29,6 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config('DATABASE_URL')
 
 ALLOWED_HOSTS = ['*']
 
@@ -47,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     "rest_framework.authtoken",
+    "graphene_django"
 ]
 
 MIDDLEWARE = [
@@ -150,3 +149,7 @@ REST_FRAMEWORK = {
 }
 
 django_heroku.settings(locals())
+
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema'
+}
