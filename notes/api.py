@@ -16,7 +16,7 @@ class PersonalNoteViewSet(viewsets.ModelViewSet):
     queryset = PersonalNote.objects.all()
     def get_queryset(self):
         loggedInUser = self.request.user #how to get the user object
-        anonUser = self.request.user.is_anonymous #t or f boolean
+        anonUser = loggedInUser.is_anonymous #t or f boolean
         if anonUser:
             return PersonalNote.objects.none()
         else:

@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django'
 ]
 
 MIDDLEWARE = [
@@ -156,4 +157,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ]
 
+}
+# GRAPHENE SETTINGS
+GRAPHENE = {
+    #folder, file, name of variable schema...
+    'SCHEMA': 'notes.schema.schema'
 }

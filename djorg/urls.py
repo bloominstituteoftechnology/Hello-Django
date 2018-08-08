@@ -19,6 +19,7 @@ from notes.api import PersonalNoteViewSet
 from rest_framework import routers
 from django.urls import path, include, re_path
 from rest_framework.authtoken import views
+from graphene_django.views import GraphQLView # makes a graphical interface to be able to test it like postman or star wars api
 
 
 router = routers.DefaultRouter()
@@ -29,4 +30,5 @@ urlpatterns = [
     # path("", views.notes),
     path('api/', include(router.urls)),
     re_path(r'^api-token-auth/', views.obtain_auth_token),
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
 ]
