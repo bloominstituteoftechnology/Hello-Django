@@ -15,13 +15,13 @@ class App extends Component {
   
     const token = "Token a30df5495e88a321b9d83f4b435f65502a0ebc0c"
 
-    const optionTwo = {
+    const option = {
         method: 'GET',
         headers: { 'content-type': 'application/json', 'Authorization': token },
         url: "https://frozen-ridge-71012.herokuapp.com/api/notes/",
     }
 
-    axios(optionTwo)
+    axios(option)
         .then(res => {
             console.log(res)
             this.setState({ data: res.data })
@@ -35,11 +35,11 @@ class App extends Component {
     return (
       <div className="App">
         <div>{ this.state.data.map(note => {
-          return <div> (
+          return <div> 
             Title: { note.title } Content: { note.content }
-          )
             </div>
-        }) }</div>
+        })}
+        </div>
       </div>
     );
   }
