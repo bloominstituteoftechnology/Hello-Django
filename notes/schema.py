@@ -21,4 +21,16 @@ class Query(graphene.ObjectType):
         else:
             return PersonalNoteModel.objects.filter(user=user)
 
+class CreatePersonalNote(graphene.Mutation):
+
+    class Arguments:
+        title = graphene.String()
+        content = graphene.String()
+    
+    personalnote = graphene.Field(PersonalNote)
+    ok = graphene.Boolean()
+    status = graphene.String()
+
+    
+
 schema = graphene.Schema(query=Query)
