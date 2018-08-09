@@ -35,12 +35,13 @@ class CreatePersonalNote(graphene.Mutation):
         user = info.context.user
 
         if user.is_anonymous:
-            CreatePersonalNote(ok=False, status="Need to log in!")
+            return CreatePersonalNote(ok=False, status="Need to log in!")
         else:
             new_note = PersonalNoteModel(title=title, content=content, user=user)
             new_note.save()
             return CreatePersonalNote(personal_note=new_note, ok=True, content="Success!")
 
-    
+class Mutation(graphene.Mutation):
+    create_personal_note = CreatePersonalNote.Field()
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutation)
