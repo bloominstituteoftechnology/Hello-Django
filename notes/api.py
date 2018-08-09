@@ -18,4 +18,13 @@ class PersonalNoteViewSet(viewsets.ModelViewSet):
     """Describe the rows we want from the DB."""
 
     serializer_class = PersonalNoteSerializer
-    queryset = PersonalNote.objects.all()
+    queryset = PersonalNote.objects.none()
+
+    def get_queryset(self):
+        #import pdb; pbd.set_trace()
+        user = self.request.user
+
+        if user.is_anonymous:
+            return PersonalNote.objects.none()
+        else:
+            return PersonalNote.objects.filter(user=user)
