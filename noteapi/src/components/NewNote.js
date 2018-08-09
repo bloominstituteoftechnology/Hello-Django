@@ -15,6 +15,28 @@ class NewNote extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
+    postNote = e => {
+        e.preventDefault();
+        const token = "Token a30df5495e88a321b9d83f4b435f65502a0ebc0c"
+        const note = { title: this.state.title, content: this.state.content, url: this.state.url }
+
+        const option = {
+            method: 'POST',
+            url: "https://frozen-ridge-71012.herokuapp.com/api/notes/",
+            data: note,
+            headers: { 'content-type': 'application/json', 'Authorization': token }
+        }
+
+        axios(option)
+        .then(note => {
+            console.log(note)
+            this.setState({ title: "", content: "", url: "" })
+        })
+        .catch(err => 
+            console.log(err)
+        )
+    }
+
     render() {
         return (
             <div>
@@ -40,7 +62,7 @@ class NewNote extends Component {
                         type="text"
                         onChange = { this.textChange }
                     />
-                    <button>Post New Note</button>
+                    <button onClick={ this.postNote }>Post New Note</button>
                 </form>
             </div>
         )
