@@ -30,7 +30,7 @@ class NewNote extends Component {
         axios(option)
         .then(note => {
             console.log(note)
-            this.setState({ title: "", content: "", url: "" })
+            window.location.reload();
         })
         .catch(err => 
             console.log(err)
