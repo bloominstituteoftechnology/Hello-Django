@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './App.css';
-import Note  from './components/Note'
+import DisplayNote from './components/DisplayNote'
 
 class App extends Component {
   constructor() {
@@ -44,7 +44,7 @@ class App extends Component {
     return (
       <div className="App">
         { this.state.data.map(note => 
-          <Note 
+          <DisplayNote 
           key={ note.title } 
           note={ note } 
           getRandomColor = { this.getRandomColor }
