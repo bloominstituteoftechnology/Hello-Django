@@ -39,7 +39,7 @@ class CreatePersonalNote(graphene.Mutation):
         else:
             new_note = PersonalNoteModel(title=title, content=content, user=user)
             new_note.save()
-            return CreatePersonalNote(personalnote=new_note, ok=True, content="Success!")
+            return CreatePersonalNote(personalnote=new_note, ok=True, status="Success!")
 
 class Mutation(graphene.ObjectType):
     create_personal_note = CreatePersonalNote.Field()
