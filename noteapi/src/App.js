@@ -23,7 +23,7 @@ class App extends Component {
 
     axios(option)
       .then(res => {
-          console.log(res)
+          // console.log(res)
           this.setState({ data: res.data })
       })
       .catch(err => {
@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
         { this.state.data.map(note => 
           <Note 
-          key={ note.content } 
+          key={ note.title } 
           note={ note } 
           getRandomColor = { this.getRandomColor }
           />
