@@ -27,7 +27,8 @@ class App extends Component {
         let header = {
           Authorization: 'Token ' + response.data.token
         }
-        axios.get('http://localhost:8000/graphql/?query=%7B%0A%20%20notes%20%7B%0A%20%20%20%20id%0A%20%20%20%20title%0A%20%20%20%20content%0A%20%20%20%20url%0A%20%20%7D%0A%7D', header)
+        let properties = 'id title content url'
+        axios.get(`http://localhost:8000/graphql/?query={notes{${properties}}}`, header)
           .then(notes_res => {
             console.log(notes_res)
             let my_notes = Array.from(notes_res.data.data.notes)
