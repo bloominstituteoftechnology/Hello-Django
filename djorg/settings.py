@@ -30,6 +30,7 @@ DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = ['*'] # config('ALLOWED_HOSTS').split(',') Can also add ALLOWED HOSTS to Heroku Dashbord 
 DATABASE_URL = config('DATABASE_URL')
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', 
-    'rest_framework.authtoken'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -51,6 +53,7 @@ MIDDLEWARE_CLASSES = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,7 +61,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+     
 ]
 
 ROOT_URLCONF = 'djorg.urls'
@@ -90,7 +94,7 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': dj_database_url.config(default=config('DATABASE_URL'), conn_max_age=600)
 
 }
 
@@ -142,7 +146,5 @@ REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICAITON_CLASSES': (
         'rest_framework.authenticaiton.TokenAuthentication', 
-        'rest_framework.authenticaiton.BasicAuthentication',
-        'rest_framework.authenticaiton.SessionAuthentication',
     )
 }
