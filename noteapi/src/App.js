@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
+      notes: [],
     }
   }
 
@@ -24,7 +24,7 @@ class App extends Component {
     axios(option)
       .then(res => {
           // console.log(res)
-          this.setState({ data: res.data })
+          this.setState({ notes: res.data })
       })
       .catch(err => {
         console.log(err)
@@ -43,7 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.state.data.map(note => 
+        { this.state.notes.map(note => 
           <DisplayNote 
           key={ note.title } 
           note={ note } 
