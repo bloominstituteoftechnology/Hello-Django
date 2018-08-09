@@ -2,7 +2,7 @@ from rest_framework import serializers, viewsets
 from .models import PersonalNote
 
 class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
-    ""'Describe the model and fields we want to use."""
+    """Describe the model and fields we want to use."""
 
     class Meta:
         model = PersonalNote
