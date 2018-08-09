@@ -10,6 +10,26 @@ class NewNote extends Component {
             url: ""
         }
     }
+
+    textChange = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    render() {
+        return (
+            <div>
+                <form>
+                    <input 
+                    name="title"
+                    value={ this.state.title }
+                    placeholder="Title"
+                    type="text"
+                    onChange = { this.textChange }
+                    />
+                </form>
+            </div>
+        )
+    }
 }
 
 export default NewNote;

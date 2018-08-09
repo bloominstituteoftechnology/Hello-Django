@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './App.css';
-import DisplayNote from './components/DisplayNote'
+import DisplayNote from './components/DisplayNote';
+import NewNote from './components/NewNote';
 
 class App extends Component {
   constructor() {
@@ -43,6 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NewNote />
         { this.state.notes.map(note => 
           <DisplayNote 
           key={ note.title } 
