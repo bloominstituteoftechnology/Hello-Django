@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'rest_framework',
+    'graphene_django',
     
 ]
 
@@ -74,6 +75,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'djorg.wsgi.application'
+
 
 
 # Database
