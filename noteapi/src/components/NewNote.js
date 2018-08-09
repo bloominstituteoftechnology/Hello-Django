@@ -40,6 +40,7 @@ class NewNote extends Component {
                         type="text"
                         onChange = { this.textChange }
                     />
+                    <button>Post New Note</button>
                 </form>
             </div>
         )
