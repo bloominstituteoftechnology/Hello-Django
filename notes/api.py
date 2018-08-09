@@ -6,7 +6,7 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = PersonalNote
-        fields = ('title', 'content')
+        fields = ('title', 'content', 'url')
 
 class PersonalNoteViewSet(viewsets.ModelViewSet):
     """Describe the rows we want from the DB."""
