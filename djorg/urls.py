@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework import routers
 from rest_framework.authtoken import views
+from graphene_django.views import GraphQLView
 
 from notes.api import PersonalNoteViewSet
 from notes.views import index
@@ -28,5 +29,6 @@ urlpatterns = [
     path('', index),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    re_path(r'^api-token-auth/', views.obtain_auth_token)
+    re_path(r'^api-token-auth/', views.obtain_auth_token),
+    path('graphql/', GraphQLView.as_view(graphiql=True))
 ]

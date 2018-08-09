@@ -1,0 +1,39 @@
+html {
+  background: url("https://cdn.lynda.com/course/373782/373782-636247511734821922-16x9.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.3);
+  background-blend-mode: lighten;
+}
+
+.App {
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  max-width: 1450px;
+  max-height: 700px;
+  margin-top: 50px;
+  border: 10px black solid;
+  overflow-x: hidden;
+  overflow: auto;
+}
+
+.note {
+  width: 20%;
+  margin: 20px;
+  margin-left: 60px;
+  padding: 30px;
+  border: 3px black dotted;
+  opacity: .9;
+}
+
+.note__title {
+  padding-bottom: 20px;
+  border-bottom: 2px solid black;
+}
+
+.note__content {
+  font-size: 24px;
+  padding-bottom: 50px;
+  word-break: break-all;
+}
