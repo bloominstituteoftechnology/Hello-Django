@@ -5,6 +5,7 @@ class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
     """Describe the model and fields we want to use."""
 
     def create(self, validated_data):
+        import pdb; pdb.set_trace()
         note = PersonalNote.object.create(**validated - data)
         return note
 
