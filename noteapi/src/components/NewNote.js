@@ -20,11 +20,25 @@ class NewNote extends Component {
             <div>
                 <form>
                     <input 
-                    name="title"
-                    value={ this.state.title }
-                    placeholder="Title"
-                    type="text"
-                    onChange = { this.textChange }
+                        name="title"
+                        value={ this.state.title }
+                        placeholder="Title"
+                        type="text"
+                        onChange = { this.textChange }
+                    />
+                    <input 
+                        name="content"
+                        value={ this.state.content }
+                        placeholder="Content"
+                        type="text"
+                        onChange = { this.textChange }
+                    />
+                    <input 
+                        name="url"
+                        value={ this.state.url }
+                        placeholder="URL"
+                        type="text"
+                        onChange = { this.textChange }
                     />
                 </form>
             </div>
