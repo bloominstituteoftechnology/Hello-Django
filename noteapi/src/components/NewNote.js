@@ -18,19 +18,14 @@ class NewNote extends Component {
     postNote = e => {
         e.preventDefault();
         const token = "Token a30df5495e88a321b9d83f4b435f65502a0ebc0c"
+        const headers = { 'content-type': 'application/json', 'Authorization': token }
         const note = { title: this.state.title, content: this.state.content, url: this.state.url }
-
-        const option = {
-            method: 'POST',
-            url: "https://frozen-ridge-71012.herokuapp.com/api/notes/",
-            data: note,
-            headers: { 'content-type': 'application/json', 'Authorization': token }
-        }
-
-        axios(option)
+        
+        axios
+        .post(`https://frozen-ridge-71012.herokuapp.com/api/notes/`, note, { headers })
         .then(note => {
             console.log(note)
-            window.location.reload();
+            this.setState({ title: "", content: "", url: "" })
         })
         .catch(err => 
             console.log(err)
