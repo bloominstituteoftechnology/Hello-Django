@@ -6,13 +6,16 @@ from .models import PersonalNote as PersonalNoteModel
 class PersonalNote(DjangoObjectType):
 
     class Meta:
+
         model = PersonalNoteModel
         interfaces = (graphene.relay.Node, )
 
 class Query(graphene.ObjectType):
+
     personalnotes = graphene.List(PersonalNote)
 
     def resolve_notes(self, info):
+
         user = info.context.user 
 
         if user.is_anonymous:
@@ -20,4 +23,26 @@ class Query(graphene.ObjectType):
         else:
             return PersonalNoteModel.objects.filter(user=user)
 
-schema = graphene.Schema(query=Query)
+class CreatePersonalNote(graphene.Mutation):
+
+  class Arguments:
+    title = graphene.String()
+    content = graphene.String()
+
+  personalnote = graphene.Field(PersonalNote)
+  ok = graphene.Boolean()
+
+  def mutate(self, info, title, content):
+    user = info.context.user
+
+    if user.is_anonymous:
+      return CreatePersonalNote(ok=False, status="Must be logged in!")
+    else:
+      new_note = PersonalNoteModel(title=title, content=content, user=user)
+      new_note.save()
+      return CreatePersonalNote(personalnote=new_note, ok=True, status="ok")
+
+class Mutation(graphene.ObjectType):
+  create_personal_note = CreatePersonalNote.Field()
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
