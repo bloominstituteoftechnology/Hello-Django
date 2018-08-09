@@ -4,7 +4,7 @@ class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            toggle: true
+            toggle: false
         }
     }
 
@@ -14,15 +14,13 @@ class Note extends Component {
 
     render() {
         return (
-            <div>
-                <div
-                className="note" 
-                style={{ "background": this.props.getRandomColor() }}
-                onClick={ () => { this.handleClick() }}
-                > 
-                <h1 className="note__h1"> { this.props.note.title } </h1>
-                { this.state.toggle ? <p className="note__p"> { this.props.note.content } </p> : null }
-                </div>
+            <div
+            className="note" 
+            style={{ "background": this.props.getRandomColor() }}
+            onClick={ () => { this.handleClick() }}
+            > 
+            <h1 className="note__title"> { this.props.note.title } </h1>
+            { this.state.toggle ? <div className="note__content"> { this.props.note.content } </div> : null }
             </div>
         )   
     }
