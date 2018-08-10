@@ -89,10 +89,12 @@ WSGI_APPLICATION = 'mark.wsgi.application'
 #     'default': dj_database_url.config(default=config('DATABASE_URL'))
 # }
 
-DATABASES = {
-    'defualt': dj_database_url.config(defualt=config('DATABASE_URL'))
-}
+# DATABASES = {
+#     'defualt': dj_database_url.config(defualt=config('DATABASE_URL'))
+# }
 
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config('DATABASE_URL', conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
