@@ -51,9 +51,9 @@ class App extends Component {
 
         <NewNote getNote = { this.getNotes }/>
 
-        { this.state.notes.map(note => 
+        { this.state.notes.map((note, index) => 
           <DisplayNote 
-          key={ note.title } 
+          key={ index } 
           note={ note } 
           getRandomColor = { this.getRandomColor }
           />
