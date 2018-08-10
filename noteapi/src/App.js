@@ -14,18 +14,22 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getNotes()
+  }
+
+  getNotes() {
     const token = "Token a30df5495e88a321b9d83f4b435f65502a0ebc0c"
 
     const option = {
-        method: 'GET',
-        headers: { 'content-type': 'application/json', 'Authorization': token },
-        url: "https://frozen-ridge-71012.herokuapp.com/api/notes/",
+      method: 'GET',
+      headers: { 'content-type': 'application/json', 'Authorization': token },
+      url: "https://frozen-ridge-71012.herokuapp.com/api/notes/",
     }
 
     axios(option)
       .then(res => {
-          // console.log(res)
-          this.setState({ notes: res.data })
+        // console.log(res)
+        this.setState({ notes: res.data })
       })
       .catch(err => {
         console.log(err)
@@ -44,7 +48,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NewNote />
+
+        <NewNote getNote = { this.getNotes }/>
+
         { this.state.notes.map(note => 
           <DisplayNote 
           key={ note.title } 
@@ -52,6 +58,7 @@ class App extends Component {
           getRandomColor = { this.getRandomColor }
           />
         )}
+        
       </div>
     );
   }

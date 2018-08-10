@@ -12,11 +12,11 @@ class NewNote extends Component {
     }
 
     textChange = e => {
+        e.preventDefault();
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    postNote = e => {
-        e.preventDefault();
+    postNote = () => {
         const token = "Token a30df5495e88a321b9d83f4b435f65502a0ebc0c"
         const headers = { 'content-type': 'application/json', 'Authorization': token }
         const note = { title: this.state.title, content: this.state.content, url: this.state.url }
@@ -26,6 +26,7 @@ class NewNote extends Component {
         .then(note => {
             console.log(note)
             this.setState({ title: "", content: "", url: "" })
+            this.props.getNote()
         })
         .catch(err => 
             console.log(err)
