@@ -9,6 +9,8 @@ django = "*"
 gunicorn = "*"
 "psycopg2-binary" = "*"
 whitenoise = "*"
+dj-database-url = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
