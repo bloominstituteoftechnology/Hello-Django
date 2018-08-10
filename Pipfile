@@ -13,6 +13,7 @@ gunicorn = "*"
 dj-database-url = "*"
 whitenoise = "*"
 graphene-django = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
