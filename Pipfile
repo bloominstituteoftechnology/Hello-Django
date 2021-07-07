@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+python-decouple = "*"
+django = "*"
+gunicorn = "*"
+"psycopg2-binary" = "*"
+whitenoise = "*"
+dj-database-url = "*"
+djangorestframework = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7.0"
